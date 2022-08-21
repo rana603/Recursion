@@ -1,0 +1,169 @@
+1. Traverse an array:
+input-
+5
+1 2 3 4 5
+output-
+1 2 3 4 5
+ public static void printArray(int index,int[] arr){
+    if( index==arr.length) return;
+    System.out.println(arr[index]);
+    printArray(index+1, arr);
+        
+    }
+    
+ Reverse an Array
+ public static void printArray(int index,int[] arr){
+  if (index<0){
+    return;
+  }
+  System.out.println(arr[index]);
+  printArray(index-1,arr);
+}
+
+
+2. Traverse  a String;
+input
+ 6
+ankush
+outout: ankush
+public static void printCharacters(int index, String a){
+  if (index == a.length()){
+    return;
+  }
+  System.out.println(a.charAt(index));
+  printCharacters(index+1,a);
+}
+
+
+factorial;
+import java.util.*;
+class Main{
+    public static void main(String [] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println(facto(n));
+        
+    }
+    static int facto(int n){
+    if (n == 0 || n==1)
+        return n;
+    else
+        return n*facto(n-1);
+    }
+}
+fabonnaci series;
+//Enter code here
+import java.util.*;
+class Main{
+    public static void main(String [] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        System.out.println(fib(n));
+        
+    }
+    static int fib(int n){
+    if (n == 0)
+        return 0;
+    if (n == 1 || n == 2)
+        return 1;
+    else
+        return (fib(n - 1) + fib(n - 2));
+    }
+}
+
+
+Recursive Bubble sort
+
+//Enter code here
+//Enter code here
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for (int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        bublesort(arr,n);
+        for (int i=0;i<n;i++){
+            
+            System.out.print(arr[i]+" ");
+        }
+        
+    }
+    public static void bublesort(int[] arr, int n){
+        if (n==1){
+            return;
+        }
+        for (int i=0;i<n-1;i++){
+            if (arr[i]>arr[i+1]){
+                swap(arr,i,i+1);
+            }
+        }
+        bublesort(arr,n-1);
+        
+    }
+    public static void swap(int[] arr,int i, int j){
+        int temp= arr[i];
+        arr[i]=arr[j];
+        arr[j]=temp;
+    }
+}
+
+
+Length & Recursion
+
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        String str = sc.nextLine();
+        System.out.println(strLength(str));
+    }
+
+    public static int strLength(String str) {
+        if (str.equals(""))
+            return 0;
+        else
+            return strLength(str.substring(1)) + 1;
+    }
+}
+
+
+stairs step
+input 4
+output=7
+No of the ways for n=4 are:-
+
+1 1 1 1
+
+1 1 2
+
+2 1 1
+
+1 2 1
+
+1 3
+
+3 1
+
+2 2
+stair//Enter code here
+import java.util.*;
+class Main{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+		int N=sc.nextInt();
+		System.out.println(countSteps(N));
+	}
+	private static int countSteps(int N) {
+		if(N<0){
+			return 0;
+		}
+		if (N==0){
+		    return 1;
+		}
+		return countSteps(N - 1) + countSteps(N - 2) + countSteps(N - 3);
+	}
+}
