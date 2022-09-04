@@ -167,3 +167,67 @@ class Main{
 		return countSteps(N - 1) + countSteps(N - 2) + countSteps(N - 3);
 	}
 }
+
+subset sum exist in array
+9
+1 2 3 4 5 6 7 8 9
+5
+//Enter code here
+import java.util.*;
+class Main {
+    public static void main(String args[]){
+        Scanner sc=new Scanner (System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for (int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int sum=sc.nextInt();
+        if (isSubsetSum(arr, n, sum) == true)
+            System.out.println("yes");
+        else
+            System.out.println("no");
+    }
+    static boolean isSubsetSum(int arr[],int n, int sum){
+        if (sum == 0)
+            return true;
+        if (n == 0)
+            return false;
+        if (arr[n - 1] > sum)
+            return isSubsetSum(arr, n - 1, sum);
+        return isSubsetSum(arr, n - 1, sum) || isSubsetSum(arr, n - 1, sum - arr[n - 1]);
+    }
+}
+
+ count subset sum is equal to target:
+ Given an array of length N and an integer X, the task is to find the number of subsets with a sum equal to X.
+ 4 10
+1 2 3 4
+out put 1
+ 
+import java.util.*;
+class Main {
+    public static void main(String args[]){
+        Scanner sc=new Scanner (System.in);
+        int n=sc.nextInt();
+        int sum=sc.nextInt();
+        int[] arr=new int[n];
+        for (int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        System.out.println(findNoOfSubsets(arr, n, 0, sum, 0));
+    }
+    static int findNoOfSubsets(int [] arr, int n, int i, int sum, int count){
+        if(i == n){
+            if(sum == 0){
+                count++;
+            }
+            return count;
+        }
+       
+        count = findNoOfSubsets(arr, n, i + 1, sum - arr[i], count);
+        count = findNoOfSubsets(arr, n, i + 1, sum , count);
+        return count;
+    }
+    
+   }
